@@ -28,7 +28,7 @@
 	$.getJSON( "https://www.gstatic.com/culturalinstitute/tabext/imax.json", function(data) {
 
 		var caching = Cookies.get('item');
-		var item;
+		var random, item;
 
 		if (typeof caching == "undefined") {
 			console.log("yes")
@@ -38,7 +38,8 @@
 		  Cookies.set("item", random, {expires:1});
 		}
 		else {
-		  item = parseInt(Cookies.get('item'));
+		  random = parseInt(Cookies.get('item'));
+		  item = data[random];
 		}
 
 	  $("body").css("background-image","url("+item.image+")");
