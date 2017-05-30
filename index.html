@@ -38,7 +38,7 @@
 		  Cookies.set("item", random, {expires:1});
 		}
 		else {
-		  item = Cookies.get('item');
+		  item = parseInt(Cookies.get('item'));
 		}
 
 	  $("body").css("background-image","url("+item.image+")");
