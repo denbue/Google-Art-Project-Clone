@@ -27,11 +27,10 @@
 <script>
 	$.getJSON( "https://www.gstatic.com/culturalinstitute/tabext/imax.json", function(data) {
 
-		var caching = Cookies.get('item');
+		var cookie = Cookies.get('item');
 		var random, item;
 
-		if (typeof caching == "undefined") {
-			console.log("yes")
+		if (typeof cookie == "undefined") {
 		  var length = data.length;
 		  var random = Math.floor((Math.random() * length) + 1);
 		  item = data[random];
@@ -42,12 +41,13 @@
 		  item = data[random];
 		}
 
+		console.log(item)
+
 	  $("body").css("background-image","url("+item.image+")");
 	  $("h1 a").text(item.title).attr("href", "https://www.google.com/culturalinstitute/" + item.link);
 	  $(".creator").text(item.creator).attr("href", item.artist_link);
 	  $(".gallery").text(item.attribution).attr("href", "https://www.google.com/culturalinstitute/" + item.attribution_link);
 
-	  console.log(item)
 	});
 
 </script>
