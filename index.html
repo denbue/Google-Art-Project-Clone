@@ -35,7 +35,7 @@
 		  var length = data.length;
 		  var random = Math.floor((Math.random() * length) + 1);
 		  item = data[random];
-		  Cookies.set("item", item, {expires:1});
+		  Cookies.set("item", random, {expires:1});
 		}
 		else {
 		  item = Cookies.get('item');
