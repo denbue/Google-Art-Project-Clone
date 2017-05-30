@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <!-- Basics -->
+  <meta charset="utf-8">
+  <title>Google Art Project</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <style>
+  * {margin:0;padding:0;} html{height:100%;width:100%;}
+  body {background-size:cover!important;height:100%;width:100%;font-family:"Roboto",sans-serif;background-repeat:no-repeat;}
+  .cc {position:absolute;bottom:0;width:100%;background:linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%);padding:50px;font-size:13px;color:#b8b8b8;}
+  a {text-decoration:none;color:#b8b8b8;margin-top:10px;display:inline-block;}
+  h1 a {font-size:24px;color:white;margin-top:10px;font-weight:100;}
+  </style>
+</head>
+<body>
+<div class="cc">
+  <h1><a href=""></a></h1>
+  <a class="creator"></a> | <a class="gallery"></a>
+  <p>Art Project from <a href="https://www.google.com/culturalinstitute/">Google Cultural Institute</a>
+</div>
+<script>
+$.getJSON( "https://www.gstatic.com/culturalinstitute/tabext/imax.json", function(data) {
+  var length = data.length;
+  var random = Math.floor((Math.random() * length) + 1);
+  var item = data[random];
+
+  $("body").css("background-image","url("+item.image+")");
+  $("h1 a").text(item.title).attr("href", "https://www.google.com/culturalinstitute/" + item.link);
+  $(".creator").text(item.creator).attr("href", item.artist_link);
+  $(".gallery").text(item.attribution).attr("href", "https://www.google.com/culturalinstitute/" + item.attribution_link);
+
+  console.log(item)
+});
+</script>
+</body>
