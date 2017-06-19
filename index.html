@@ -32,9 +32,9 @@
 
 		if (typeof cookie == "undefined") {
 		  var length = data.length;
-		  var random = Math.floor((Math.random() * length) + 1/24);
+		  var random = Math.floor((Math.random() * length) + 1);
 		  item = data[random];
-		  Cookies.set("item", random, {expires:1});
+		  Cookies.set("item", random, { expires: 1/24 });
 		}
 		else {
 		  random = parseInt(Cookies.get('item'));
